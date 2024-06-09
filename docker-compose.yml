@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  service:
+    build: .
+    image: task-manager
+    container_name: task-manager-container
+    ports:
+      - 8080:8080
+    depends_on:
+      - task-manager-db
+    restart: on-failure
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://task-manager-db:5432/task-manager
+      - POSTGRES_USER=task-manager
+      - POSTGRES_PASSWORD=task-manager
+
+  task-manager-db:
+    image: postgres:16-alpine
+    container_name: task-manager-db-container
+    volumes:
+      - /var/lib/postgresql/data/
+    ports:
+      - 6541:5432
+    environment:
+      - POSTGRES_DB=task-manager
+      - POSTGRES_USER=task-manager
+      - POSTGRES_PASSWORD=task-manager
