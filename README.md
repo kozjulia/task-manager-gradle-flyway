@@ -15,7 +15,7 @@ _______
 
 -------
 
-Приложение написано на **Java**, использует **Spring Boot**, **Maven**, **Hibernate**, **Liquibase**, **Swagger**,
+Приложение написано на **Java**, использует **Spring Boot**, **Gradle**, **Hibernate**, **Flyway**, **Swagger**,
 **JUnit 5**, **Mockito**, **Docker**, API соответствует **REST**, данные хранятся в БД **PostgreSQL**, тесты выполняются в **H2**.
 Тестовое покрытие кода - 75% строк кода.
 
@@ -23,8 +23,8 @@ _______
 -------
 
 Для запуска приложения перейдите в папку с приложением и запустите
-```maven
-mvn clean package
+```gradle
+gradle clean build
 ```
 
 ```command
